@@ -1,0 +1,8 @@
+.project-description {
+  display: -webkit-box;
+  -webkit-line-clamp: 2; /* количество строк, которые нужно отобразить */
+  -webkit-box-orient: vertical;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  height: 48px; /* задаем высоту блока */
+  }
