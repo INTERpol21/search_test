@@ -25,6 +25,34 @@ const SearchPage: React.FC = () => {
     const indexOfFirstCard:number = indexOfLastCard - cardsPerPage;
     const currentCards:ProjectProps[] = projects.slice(indexOfFirstCard, indexOfLastCard);
 
+
+    //Читающий ВАЖНО!
+
+    // Обновляем параметры роутера при изменении соответствующих состояний компонента. И так как страница в Роутере, одна, такой функционал сюда просто не подходит, это костыль
+    // И использование Navigate или history.push не помогает, так как они не обновляют страницу, а просто переходят на нее
+    //Сделал чисто для задания, но весь функционал. Сохранения состояние, как не странно, но вынесен и работает через Redux
+    // const {searchTerm, page, cards} = useParams<{searchTerm: string, page: string, cards: string}>();
+    // const navigate = useNavigate();
+
+    // useEffect(() => {
+    //     const path = `/search/${searchTerm}/${currentPage}/${cardsPerPage}`;
+    //     navigate(path);
+    // }, [searchTerm, currentPage, cardsPerPage, navigate]);
+    // useEffect(() => {
+    //     // Загружаем проекты при первоначальной загрузке страницы или при изменении поискового запроса
+    //     if (searchTerm != null) {
+    //         dispatch(searchProjects(searchTerm));
+    //     }
+    // }, [dispatch, searchTerm]);
+    // useEffect(() => {
+    //     // Восстанавливаем текущую страницу и количество карточек на странице при перезагрузке страницы
+    //     if (page && cards) {
+    //         setCurrentPage(parseInt(page));
+    //         setCardsPerPage(parseInt(cards));
+    //     }
+    // }, [page, cards]);
+
+
     const [message, setMessage] = useState<string | null>(null);
     const showMessage = (msg: string) => {
         setMessage(msg);
