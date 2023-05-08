@@ -2,7 +2,6 @@ import { createSlice, PayloadAction } from '@reduxjs/toolkit';
 import { searchProjects } from './actions';
 import { ProjectProps } from "./types";
 
-
 interface SearchState {
     projects: ProjectProps[];
     loading: boolean;
@@ -14,6 +13,8 @@ const initialState: SearchState = {
     loading: false,
     error: null,
 };
+
+
 export const searchSlice = createSlice({
     name: "search",
     initialState,
@@ -31,6 +32,8 @@ export const searchSlice = createSlice({
                 (project) => project.id.toString() !== action.payload
             );
         },
+
+
     },
     extraReducers: (builder) => {
         builder
